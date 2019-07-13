@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/styletest.css' %}">
+<link rel="stylesheet" href="{% static 'css/style2.css' %}">
+<link rel="stylesheet" href="{% static 'css/style3.css' %}">
+
+<!--<link rel="stylesheet" href="{% static 'css/accounts.css' %}">
+-->
+<div class ="wrap">
+	
+	<form  method="POST" action="{% url 'signup' %}">
+	<h4>{{msg}}</h4>
+		{% csrf_token %}
+		<h2> SignUp Free</h2>
+		<input type="text" name="username" placeholder="Username" required></input>
+		<input type="email" name="email" placeholder="Email" required></input>
+		<input type="password" name="password1" placeholder="Password" required></input>
+		<input type="password" name="confpass" placeholder="Confirm Password" required></input>
+		<input type="text" name="name1" placeholder="Name" required></input>
+		<input type="number" name="phone" placeholder="Phone No" required min="1000000000" max="9999999999"></input>
+		<textarea rows="3" cols="44" name="address" placeholder="Address" required></textarea>
+		<input type="number" name="pin" placeholder="Pin Code" required min="100000" max="999999"></input>
+		<input type="text" name="city" placeholder="City" required></input>
+		<input type="text" name="state" placeholder="State" required></input>
+		
+		<!--<input type="number" name="mnumber" placeholder="Mobile Number" required max="10000000000">-->
+		<br>
+		
+		
+		<input type="checkbox" required><span style="color:orange;">I Agree to The Terms of Use</span></input>
+		<br>
+		<button type="submit"class="btn btn-success">SignUp</button>
+	</form>
+</div>
+{% endblock %}
+
